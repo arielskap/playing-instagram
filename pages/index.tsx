@@ -14,7 +14,7 @@ const Index: React.FC = () => {
 		// 		console.log( result )
 		// 		return result
 		// 	} )
-		fetch( `https://www.instagram.com/ecstasy_ring/?__a=1`, {
+		fetch( `https://api.instagram.com/oauth/access_token`, {
 			method: `POST`,
 			body: JSON.stringify( {
 				client_id: 123175986433056,
