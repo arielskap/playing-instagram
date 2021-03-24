@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import HolaMundo from "@components/HolaMundo"
 import Layout from "@components/Layout"
 
@@ -81,12 +82,31 @@ const Index: React.FC = () => {
 			} )
 	}
 
+	const otroOtro = () => {
+		const instagramUrl = `https://www.instagram.com/p/fA9uwTtkSN/`
+		const accessToken = `IGQVJWaS1GZAE5Iai1RU2dnNDVlTkFwVURFQ1hfUDRreGgyQU1zQWlJWWVhVzVPa25hakN0ODdyUndQUEl2cTlSUUc0dE1xM1E0cG50Qy1rVHRtZAjNoSHZACNm5WT2Fnd3pYOUlsa0RBamVBeDZAjMGhMcgZDZD`
+
+		fetch( `https://graph.facebook.com/v10.0/instagram_oembed?url=${instagramUrl}&access_token=${accessToken}` )
+			.then( ( result ) => {
+				return result.json()
+			} ).catch( ( e ) => {
+				console.log( e )
+				return e
+			} ).then( ( result ) => {
+				console.log( result )
+				return result
+			} )
+	}
+
 	return (
 		<Layout>
 			<div className='flex flex-col items-center justify-center w-screen h-screen'>
 				<HolaMundo />
 				<button type='button' onClick={handleClick}>Traer ultima publicación</button>
 				<button type='button' onClick={otro}>otro</button>
+				<Link href='/pruebaMasBasica'>
+					<a>cambiando de page</a>
+				</Link>
 			</div>
 		</Layout>
 	)
