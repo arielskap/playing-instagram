@@ -98,12 +98,39 @@ const Index: React.FC = () => {
 			} )
 	}
 
+	const handleClickPiola = () => {
+		fetch( `https://api.instagram.com/oauth/access_token`, {
+			method: `POST`,
+			headers: {
+				'Content-Type': `application/json`
+			},
+			body: JSON.stringify( {
+				client_id: 123175986433056,
+				client_secret: `873338430866df7c9899abd78280a8e9`,
+				grant_type: `authorization_code`,
+				redirect_uri: `https://playing-instagram.vercel.app/`,
+				code: `AQAoue8JmB5RbRsSOXArLgRxBtQQJz4ycafH1zSqvHU1Ql2M_S5pbReSsIw-R1oYNVh6raCtsmjZlSWZf2tUSAsccO6F7VdoQ0m8x59tZyBQHMbRtymr4A30Ho8rC51UKsu3e7js6_txlsEiBGnQL_UIcGzBSst9QviQZlPPgL82od5MOOriWlOs1oNnUFLs14o1vR6B6fUqMLQq854Z4hP124hPVAwbou6vzFwlmG4e8g`
+			} )
+		} )
+			.then( ( result ) => {
+				return result.json()
+			} ).catch( ( e ) => {
+				console.log( e )
+				return e
+			} ).then( ( result ) => {
+				console.log( result )
+				return result
+			} )
+	}
+
 	return (
 		<Layout>
 			<div className='flex flex-col items-center justify-center w-screen h-screen'>
 				<HolaMundo />
 				<button type='button' onClick={handleClick}>Traer ultima publicación</button>
 				<button type='button' onClick={otro}>otro</button>
+				<button type='button' onClick={handleClickPiola}>piolaaaaa</button>
+
 				<Link href='/pruebaMasBasica'>
 					<a>cambiando de page</a>
 				</Link>
