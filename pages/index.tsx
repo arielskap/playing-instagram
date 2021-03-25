@@ -109,7 +109,7 @@ const Index: React.FC = () => {
 				client_secret: `873338430866df7c9899abd78280a8e9`,
 				grant_type: `authorization_code`,
 				redirect_uri: `https://playing-instagram.vercel.app/`,
-				code: `AQAoue8JmB5RbRsSOXArLgRxBtQQJz4ycafH1zSqvHU1Ql2M_S5pbReSsIw-R1oYNVh6raCtsmjZlSWZf2tUSAsccO6F7VdoQ0m8x59tZyBQHMbRtymr4A30Ho8rC51UKsu3e7js6_txlsEiBGnQL_UIcGzBSst9QviQZlPPgL82od5MOOriWlOs1oNnUFLs14o1vR6B6fUqMLQq854Z4hP124hPVAwbou6vzFwlmG4e8g`
+				code: `AQAO10bD4epTFg02qEsnulABt9Is_0sgwCh1M5uidzWOwNOm7EYAnOTbsqqoWa4Srsm3nh2Xz2MwzAaFn7E7Jjh3AFoEiooh9uYRJYODn7JakQ82x5LOJoJmOMJ7SJGPtGivPY8PF0Rm47AwOtp315MDhHRyHf_EQC50YXvlQ7uQyMAlzk0B438OFIFqmeEHv_ZrVyVHPPgLxBOcMi9_SL9VCUV5HoFAnrsrQQGIo56PNw`
 			} )
 		} )
 			.then( ( result ) => {
