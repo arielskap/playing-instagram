@@ -90,7 +90,7 @@ const Index: React.FC = () => {
 				<a href={`https://www.instagram.com/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUrl}&scope=user_profile,user_media&response_type=code`}>Obtener Code</a>
 				<button type='button' onClick={obtenerToken}>Obtener Token</button>
 				<button type='button' onClick={consultar}>Consultar</button>
-				<button type='button' onClick={obtenerMedia}>Obtener Media</button>
+				<button className='px-2 py-1 my-2 text-3xl text-white bg-green-600 border border-black rounded shadow-xl hover:bg-green-700' type='button' onClick={obtenerMedia}>Obtener Media</button>
 				{lastPost.id && (
 					<div>
 						<h1>Instagram Last Post:</h1>
