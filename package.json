@@ -9,8 +9,10 @@
     "start": "next start"
   },
   "dependencies": {
+    "cookie-session": "^1.4.0",
     "next": "^10.0.6",
     "next-seo": "^4.19.0",
+    "node-instagram": "^4.3.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },
