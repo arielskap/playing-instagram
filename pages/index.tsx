@@ -12,11 +12,8 @@ const Index: React.FC = () => {
 		const urlParams = new URLSearchParams( valores )
 		const code = urlParams.get( `code` )
 
+		console.log( `code`, code )
 		if ( code ) {
-			const codeSlice = code.slice( 0, -2 )
-
-			console.log( `code`, code )
-			console.log( `codeSlide`, codeSlice )
 			fetch( `https://api.instagram.com/oauth/access_token`, {
 				method: `POST`,
 				headers: {
@@ -27,7 +24,7 @@ const Index: React.FC = () => {
 					client_secret: clientSecret,
 					grant_type: `authorization_code`,
 					redirect_uri: redirectUrl,
-					code: codeSlice
+					code
 				} )
 			} )
 				.then( ( result ) => {
@@ -44,12 +41,31 @@ const Index: React.FC = () => {
 		}
 	}
 
+	const consultar = () => {
+		const userId = 17841403278821075
+		const token = `IGQVJVUGNpcmd4R09iZA016SHZAYRVAwSE1HMy1wRVlmel9yRzNmd0xpLURqQVpWVk5OeS01RG1SV2o5cGZA3SlIySm5GdE9WSU5QczZA2ckVGc1dCMUg3UGdQOVVGU2JMTjgyTlBuRTIzNWd3ZAmxBZAFhMTVU2Y0thb1U4QzNF`
+
+		fetch( `https://graph.instagram.com/${userId}?fields=id,username&access_token=${token}` )
+			.then( ( result ) => {
+				return result.json()
+			} ).catch( ( e ) => {
+				console.log( e )
+				return e
+			} ).then( ( result ) => {
+				console.log( result )
+				return result
+			} )
+	}
+
+	// curl -X POST   https://api.instagram.com/oauth/access_token   -F client_id=123175986433056   -F client_secret=873338430866df7c9899abd78280a8e9   -F grant_type=authorization_code   -F redirect_uri=https://playing-instagram.vercel.app/   -F code=
+
 	return (
 		<Layout>
 			<div className='flex flex-col items-center justify-center w-screen h-screen'>
 				<HolaMundo />
 				<a href={`https://www.instagram.com/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUrl}&scope=user_profile,user_media&response_type=code`}>Obtener Code</a>
 				<button type='button' onClick={obtenerToken}>Obtener Token</button>
+				<button type='button' onClick={consultar}>Consultar</button>
 				<Link href='/pruebaMasBasica'>
 					<a>cambiando de page</a>
 				</Link>
